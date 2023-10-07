@@ -55,13 +55,11 @@
   </head>
   <body>
     <div
-      class="container max-w-md mx-auto w-full aspect-square height flex flex-col gap-3 px-5 py-7 items-stretch"
-    >
+      class="container max-w-md mx-auto w-full aspect-square height flex flex-col gap-3 px-5 py-7 items-stretch">
       <div class="flex justify-between items-center text-lg">
-        <h5 class="font-bold text-black">The Kampong Spirit</h5>
+        <h5 class="font-bold text-black"><a href="https://kampong-spirit.onrender.com/">The Kampong Spirit</a></h5>
         <div class="flex gap-5 items-center">
-          <i class="bi bi-search text-black"></i>
-          <i class="bi bi-three-dots-vertical"></i>
+          <i class="fa-solid fa-house-chimney" style="color: #000000;"></i>
         </div>
       </div>
       <div class="grow flex flex-col justify-end">
@@ -167,39 +165,30 @@
 
 
           <button type="button" onclick="call('chess')" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-600 to-blue-500 group-hover:from-purple-600 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
-            <span type="button" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
+            <span type="button" data-value="Chess" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
                 Chess
             </span>
           </button>
 
 
 
-          <button type="button" data-value="2" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
-            <span type="button" data-value="2" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-m">
+          <button type="button" onclick="call('Mahjong')" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+            <span type="button" data-value="Mahjong" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-m">
                 Mahjong
             </span>
           </button>
           
 
-          <button type="button" data-value="3" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
-            <span type="button" data-value="3" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
+          <button type="button" onclick="call('Quizes')" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-green-200 dark:focus:ring-green-800">
+            <span type="button" data-value="Quizes" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
                 Quizes
             </span>
           </button>
 
-          <button type="button" data-value="4" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
-            <span type="button" data-value="4" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
+          <button type="button" onclick="call('Others')" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-purple-500 to-pink-500 group-hover:from-purple-500 group-hover:to-pink-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800">
+            <span type="button" data-value="Others" class="relative px-20 py-5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 text-xl">
                 Others
             </span>
-          </button>
-          
-          <button type="button" id="call" class="P-2 focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-24 py-5 mr-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"><i class="bi bi-telephone-fill"></i></button>
-
-          <button
-            id="backspace"
-            class="rounded-full p-3 w-16 h-16 flex justify-center items-center text-black"
-          >
-            <i class="fa-solid fa-delete-left"></i>
           </button>
         </div>
       </div>
@@ -255,9 +244,11 @@
           .value.replace(/[^\d]/g, "");
       });
 
-      function call(room){
-        window.location.href = `/${room}`
-      }
+      function call(room) {
+      setTimeout(function() {
+        window.location.href = `/${room}`;
+      }, 1000); // 2000 milliseconds = 2 seconds
+    }
     </script>
   </body>
 </html>
