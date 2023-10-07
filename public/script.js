@@ -45,8 +45,8 @@ socket.on("message", (payload) => {
 const myVideo = document.createElement("video");
 var transcriptContainer = document.getElementById("transcript");
 
-var seconds = 00;
-var tens = 00;
+var seconds = 0;
+var tens = 0;
 var interval;
 
 myVideo.muted = true;
@@ -107,48 +107,48 @@ function connectToNewUser(userId, stream) {
 
 function initCall() {
   transcriptContainer.classList.remove("opacity-0");
-  document.getElementById("video").src = "/video.mp4";
+  // document.getElementById("video").src = "/video.mp4";
   calling.innerHTML = `<span id="appendMin">00</span>:<span id="appendSeconds">00</span>`;
   clearInterval(interval);
   interval = setInterval(startTimer, 1000);
   speechRec.start(continuous, interim);
   mediaRecorder.record();
   console.log(mediaRecorder.recording);
-  recording = setInterval(startRecording, 15000);
+  // recording = setInterval(startRecording, 15000);
 }
 
-function startRecording() {
-  var tempMediaRecorder = mediaRecorder;
-  mediaRecorder = new Recorder(input, { numChannels: 1 });
-  if (tempMediaRecorder.recording) {
-    tempMediaRecorder.stop();
-    mediaRecorder.record();
-  }
-  tempMediaRecorder.exportWAV(createDownloadLink);
-  var tempMediaRecorder;
-}
+// function startRecording() {
+//   var tempMediaRecorder = mediaRecorder;
+//   mediaRecorder = new Recorder(input, { numChannels: 1 });
+//   if (tempMediaRecorder.recording) {
+//     tempMediaRecorder.stop();
+//     mediaRecorder.record();
+//   }
+//   tempMediaRecorder.exportWAV(createDownloadLink);
+//   var tempMediaRecorder;
+// }
 
-function createDownloadLink(blob) {
-  var url = URL.createObjectURL(blob);
-  console.log(url);
-  let formData = new FormData();
-  formData.append("audioBlob", blob);
-  console.log("audioBlob", blob);
-  $.ajax({
-    type: "POST",
-    url: "http://localhost:5000/get-blob-data-not-hardcode",
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function (result) {
-      console.log("success", result);
-      document.getElementById("video").src = result;
-    },
-    error: function (result) {
-      console.log("sorry an error occured");
-    },
-  });
-}
+// function createDownloadLink(blob) {
+//   var url = URL.createObjectURL(blob);
+//   console.log(url);
+//   let formData = new FormData();
+//   formData.append("audioBlob", blob);
+//   console.log("audioBlob", blob);
+//   $.ajax({
+//     type: "POST",
+//     url: "http://localhost:5000/get-blob-data-not-hardcode",
+//     data: formData,
+//     contentType: false,
+//     processData: false,
+//     success: function (result) {
+//       console.log("success", result);
+//       document.getElementById("video").src = result;
+//     },
+//     error: function (result) {
+//       console.log("sorry an error occured");
+//     },
+//   });
+// }
 
 function startTimer() {
   var appendMin = document.getElementById("appendMin");
@@ -171,7 +171,10 @@ function startTimer() {
   }
 }
 
+
+let videoList = document.getElementById("videoList")
 function addVideoStream(video, stream) {
+  videoList.appendChild(video)
   video.srcObject = stream;
   video.addEventListener("loadedmetadata", () => {
     video.play();
