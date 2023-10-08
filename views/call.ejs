@@ -7,6 +7,7 @@
     <script>
       const ROOM_ID = "<%= roomId %>";
     </script>
+    <!-- Add these script tags in the head section -->
     <script src="https://unpkg.com/peerjs@1.4.7/dist/peerjs.min.js"></script>
     <script src="/socket.io/socket.io.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -62,8 +63,9 @@
 
       #video-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fill, 300px);
-        grid-auto-rows: 300px;
+        grid-template-columns: repeat(3, 1fr); /* Three columns of equal width */
+        grid-auto-rows: 300px; /* Fixed row height of 300px */
+        gap: 10px; /* Optional: Add gap between grid items */
       }
 
       .me {
@@ -96,10 +98,10 @@
   <body>
     <!-- create a circular logo -->
     <div
-      class="container max-w-md mx-auto bg-slate-800 w-full aspect-square flex flex-col gap-3 height items-stretch">
+      class="container mx-auto w-full aspect-square flex flex-col gap-3 height items-stretch">
       <div class="flex flex-col justify-center items-center pt-7" style="color: white;">
         <div class="flex justify-center items-center flex-col gap-2">
-          <h1 class="text-3xl text-stone-100 font-bold" id="phoneNum"></h1>
+          <h1 class="text-3xl text-black font-bold" id="phoneNum"></h1>
           <!-- <p class="text-center text-base" id="calling">
             calling<span class="dot-flashing">...</span>
           </p> -->
@@ -118,11 +120,16 @@
         muted
         autoplay
       ></video> -->
+
       <div class="flex gap-3 flex-col" id="videoList"></div>
+ 
+      <div id="board" style="width: 400px;"></div>
+
       <!-- text transcript -->
       <div
         class="flex flex-col h-56 justify-center items-center rounded-bl-lg rounded-br-lg mt-auto"
       >
+      
         <div
           class="h-full py-3 overflow-x-hidden overflow-y-auto opacity-0 w-full whitespace-nowrap px-6 flex flex-col gap-2"
           id="transcript"
@@ -130,19 +137,19 @@
       </div>
 
       <div
-        class="flex justify-around items-center bg-slate-500/50 py-2 rounded-tl-lg rounded-tr-lg text-2xl"
+        class="flex justify-around items-center py-2 rounded-tl-lg rounded-tr-lg text-2xl"
       >
         <!-- speaker button -->
         <button
           id="speaker"
-          class="w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500/50"
+          class="text-black w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500/50"
         >
           <i class="fa-solid fa-volume-high"></i>
         </button>
         <!-- open camera button -->
         <button
           id="camera"
-          class="w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500"
+          class="text-black w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500"
         >
           <i class="bi bi-camera-video-fill"></i>
         </button>
@@ -150,7 +157,7 @@
         <button
           data-mute="false"
           id="microphone"
-          class="w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500"
+          class="text-black w-16 h-16 p-2 flex justify-center items-center rounded-full relative hover:bg-slate-500"
         >
           <i class="bi bi-mic-mute-fill"></i>
         </button>
